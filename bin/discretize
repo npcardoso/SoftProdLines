@@ -1,0 +1,31 @@
+#!/bin/bash
+
+if [[ -z ${PROJ_HOME} ]];
+then
+    echo "Please define variable PROJ_HOME."
+    echo "E.g., $> export PROJ_HOME=..."
+    exit
+fi
+
+BIN_DIR="$PROJ_HOME/bin"
+SRC_DIR="$PROJ_HOME/src"
+BUILD_DIR="$PROJ_HOME/build"
+
+if [[ ! -d "${BIN_DIR}" ]];
+then
+    echo "Could not find directory $PROJ_HOME/bin."
+    exit
+fi
+
+CLASSPATH="${BUILD_DIR}"
+
+## create build directory if does not exist
+mkdir -p ${BUILD_DIR}
+
+## compile
+find ${SRC_DIR} -name "*.java" | \
+    xargs javac -cp ${CLASSPATH} -d ${BUILD_DIR}
+
+## run
+cat ${SRC_DIR}/sample.txt | \
+    java -cp ${CLASSPATH} DiscretizeMatrix
