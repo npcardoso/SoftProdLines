@@ -54,7 +54,9 @@ case ${SUBJECT} in
         ;;
 esac
 
-LOGFILE="${PROJ_HOME}/data/${SUBJECT}.txt"
+LOGDIR="${PROJ_HOME}/data/"
+mkdir -p ${LOGDIR}
+LOGFILE="${LOGDIR}/${SUBJECT}.txt"
 
 VM="java -Xmx1024m"
 ##VM="jvisualvm"
