@@ -1,5 +1,6 @@
 #!/bin/bash
 
+PROJ_HOME=`dirname $0`/..
 if [[ -z ${PROJ_HOME} ]];
 then
     echo "Please define variable PROJ_HOME."
