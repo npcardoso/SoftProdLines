@@ -18,7 +18,7 @@
 #  DERIVATIVE_COMPRESS_GZIPCRC___ = 11
 #  DERIVATIVE_EXTRACT_CRC___ = 12
 #  DERIVATIVE_GZIPCRC___ = 13
-testname: net.sf.zipme.FirstSuit_REPAIR:testDeflation Tue, 22 Jul 2014 14:38:05 -0300
+testname: net.sf.zipme.FirstSuit_REPAIR:testDeflation Tue, 22 Jul 2014 15:25:34 -0300
 ** 1,1,?,?,?,?,1,1,?,?,?,?,?,P
 ** 1,1,?,?,?,?,0,1,?,?,?,?,?,P
 ** 1,1,?,?,?,?,?,0,?,?,?,?,?,P
@@ -42,7 +42,7 @@ java.lang.NullPointerException
 	at org.junit.rules.TestWatcher$1.evaluate(TestWatcher.java:55)
 	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)
 < end stack-trace
-testname: net.sf.zipme.TestMain_REPAIR:testIntegration06 Tue, 22 Jul 2014 14:38:05 -0300
+testname: net.sf.zipme.TestMain_REPAIR:testIntegration06 Tue, 22 Jul 2014 15:25:34 -0300
 ** 1,1,1,1,?,1,1,1,1,1,1,1,?,P
 ** 1,1,0,1,?,1,1,1,1,1,1,1,?,P
 ** 1,1,1,1,?,1,1,1,1,1,0,1,?,P
@@ -678,7 +678,10 @@ java.lang.AssertionError: expected:<8> but was:<-1>
 	at org.junit.rules.TestWatcher$1.evaluate(TestWatcher.java:55)
 	at org.junit.internal.runners.statements.FailOnTimeout$StatementThread.run(FailOnTimeout.java:74)
 < end stack-trace
-testname: net.sf.zipme.Example_Paulo2_REPAIR:testCRC Tue, 22 Jul 2014 14:38:06 -0300
+testname: net.sf.zipme.Example_Paulo2_REPAIR:testARCHIVECHECK Tue, 22 Jul 2014 15:25:35 -0300
+** 1,?,?,?,0,?,?,?,?,?,?,?,?,P
+** 0,?,?,?,0,?,?,?,?,?,?,?,?,P
+testname: net.sf.zipme.Example_Paulo2_REPAIR:testCRC Tue, 22 Jul 2014 15:25:35 -0300
 ** 1,1,?,?,?,1,1,1,1,?,?,?,?,P
 ** 1,1,?,?,?,1,1,1,0,?,?,?,?,P
 ** 1,1,?,?,?,1,0,1,1,?,?,?,?,P
@@ -710,10 +713,7 @@ java.lang.NullPointerException
 < end stack-trace
 ** 0,0,?,?,?,1,?,?,1,?,?,?,?,P
 ** 0,0,?,?,?,1,?,?,0,?,?,?,?,P
-testname: net.sf.zipme.Example_Paulo2_REPAIR:testARCHIVECHECK Tue, 22 Jul 2014 14:38:06 -0300
-** 1,?,?,?,0,?,?,?,?,?,?,?,?,P
-** 0,?,?,?,0,?,?,?,?,?,?,?,?,P
-testname: net.sf.zipme.Example_Paulo2_REPAIR:testDERIVATIVE_COMPRESS_GZIPCRC___ Tue, 22 Jul 2014 14:38:06 -0300
+testname: net.sf.zipme.Example_Paulo2_REPAIR:testDERIVATIVE_COMPRESS_GZIPCRC___ Tue, 22 Jul 2014 15:25:35 -0300
 ** 1,?,1,1,?,1,1,?,?,?,1,?,1,P
 ** 1,?,1,0,?,1,1,?,?,?,1,?,1,P
 ** 1,?,1,1,?,1,0,?,?,?,1,?,1,P

@@ -1,11 +1,14 @@
 #!/bin/bash
 
-PROJ_HOME=`dirname $0`/..
-SRCDIR="${PROJ_HOME}/src-splat"
-BUILDDIR="${PROJ_HOME}/build"
-LIBSDIR="${PROJ_HOME}/libs"
 
-source commons
+source `dirname $0`/commons
+
+if [ -z "$BUILDDIR" ];
+then
+    echo "Plese inform name of the subject you want to analyze"
+    exit
+fi
+
 mkdir -p ${BUILDDIR}
 
 ######## compile splat

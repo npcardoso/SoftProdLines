@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source commons
+source `dirname $0`/commons
 
 SPLATDIR="$PROJ_HOME/src-subjects-splat"
 

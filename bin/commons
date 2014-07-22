@@ -5,16 +5,19 @@ pushd `dirname $0` > /dev/null
 PROJ_HOME=`pwd`/..
 popd > /dev/null
 
+SRCDIR="${PROJ_HOME}/src-splat"
 BUILDDIR="${PROJ_HOME}/build"
 LIBSDIR="${PROJ_HOME}/libs"
-
-
 CP="${BUILDDIR}"
+
 for x in `ls ${LIBSDIR}/*.jar`;
 do
   CP=${x}:${CP}
 done
 
+export SRCDIR
+export BUILDDIR
+export LIBSDIR
 export PROJ_HOME
 export CP
 
