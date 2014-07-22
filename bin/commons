@@ -1,0 +1,21 @@
+#!/bin/bash
+
+## needs fully-qualified name
+pushd `dirname $0` > /dev/null
+PROJ_HOME=`pwd`/..
+popd > /dev/null
+
+BUILDDIR="${PROJ_HOME}/build"
+LIBSDIR="${PROJ_HOME}/libs"
+
+
+CP="${BUILDDIR}"
+for x in `ls ${LIBSDIR}/*.jar`;
+do
+  CP=${x}:${CP}
+done
+
+export PROJ_HOME
+export CP
+
+

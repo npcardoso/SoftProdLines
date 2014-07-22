@@ -1,0 +1,19 @@
+#!/bin/bash
+
+PROJ_HOME=`dirname $0`/..
+SRCDIR="${PROJ_HOME}/src-splat"
+BUILDDIR="${PROJ_HOME}/build"
+LIBSDIR="${PROJ_HOME}/libs"
+
+source commons
+mkdir -p ${BUILDDIR}
+
+######## compile splat
+find "${SRCDIR}" -name "*.java" | \
+    xargs javac -cp $CP -d ${BUILDDIR}
+
+######## compile splat subjects
+SRCDIR="${PROJ_HOME}/src-subjects-splat"
+find "${SRCDIR}" -name "*.java" | \
+    xargs javac -cp $CP -d ${BUILDDIR}
+

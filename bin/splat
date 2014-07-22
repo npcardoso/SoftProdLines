@@ -1,0 +1,73 @@
+#!/bin/bash
+
+source commons
+
+SPLATDIR="$PROJ_HOME/src-subjects-splat"
+
+#################
+SUBJECT="zipme"
+SHOULDSAMPLE="false"
+SAMPLERATE="1"
+SEED=95729
+
+echo "${SUBJECT} ${SHOULDSAMPLE} ${SAMPLERATE}"
+
+# if [ -z "$1" ];
+# then
+#     echo "Plese inform name of the subject you want to analyze"
+#     exit
+# fi
+
+## check if informed the name of a proper subject
+SUBJECTDIR="$SPLATDIR/$SUBJECT"
+
+if [ ! -d "$SUBJECTDIR" ];
+then
+    echo "Could not find directory $SUBJECTDIR"
+    exit
+fi
+
+case ${SUBJECT} in
+    "zipme" )
+        TESTFILE="net.sf.zipme.TestAll"
+        ;;
+    "notepad" | "gpl" )
+        TESTFILE="smashed.TestAll"
+        ;;
+	"berkeleydb" )
+        TESTFILE="test.TestAll"
+        ;;
+    "desktopsearcher" )
+        TESTFILE="desktopsearcher.TestAll"
+        ;;
+    "companies" )
+        TESTFILE="org.softlang.tests.TestAll"    
+        ;;
+    "prevayler")
+        TESTFILE="org.prevayler.tests.TestAll"
+        ;;
+    "xstream")
+	TESTFILE="tests.TestAll"
+	;;
+    *)
+        TESTFILE="tests.TestAll"
+        ;;
+esac
+
+LOGFILE="${PROJ_HOME}/data/${SUBJECT}.txt"
+
+VM="java -Xmx1024m"
+##VM="jvisualvm"
+#VM="java -Xmx1024m -agentlib:hprof=cpu=samples"
+
+### used shouldsample FALSE if you want to disable sampling
+(cd ${SUBJECTDIR};
+
+    ${VM} -cp $CP splat.Main \
+        --testclass ${TESTFILE} \
+        --logfile ${LOGFILE} \
+        --shouldsample ${SHOULDSAMPLE} \
+        --samplerate ${SAMPLERATE} \
+        --seed ${SEED} 
+    
+)
