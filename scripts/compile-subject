@@ -1,0 +1,57 @@
+#!/bin/bash
+
+source `dirname $0`/commons
+
+SUBJECT=$1
+MUTANT=$2
+
+if [ -z "$SUBJECT" ] ;
+then
+    echo "Please inform name of the subject to compile"
+    exit
+fi
+
+echo "compiling subject=${SUBJECT} with mutant=${MUTANT}"
+
+if [[ -n "$MUTANT"  ]] ;
+then
+    ## arguments to C preprocessor
+    ARGS="-Wp,-D${MUTANT}"
+fi
+
+
+SRC_DIR="${PROJ_HOME}/src-subjects-splat/${SUBJECT}/src"
+if [ ! -d "$SRC_DIR" ];
+then
+    echo "Could not find directory: ${SUBJECT_DIR}"
+    exit
+fi
+
+
+################# pre-process subject
+PREPROC_DIR="${SRC_DIR}/../../preproc"
+if [ -d "PREPROC_DIR" ];
+then
+    rm -r "${PREPROC_DIR}/*"
+else
+    mkdir -p "${PREPROC_DIR}"
+fi
+
+(cd ${SRC_DIR};
+    pwd
+    for x in `find . -name "*.java" | xargs`
+    do
+        cpp -E ${ARGS} ${x} | grep -vE "#" > "${PREPROC_DIR}/${x}"
+    done
+)
+
+
+LIBSDIR="${SPLATDIR}/libs"
+for x in `ls ${LIBSDIR}/*.jar`;
+do
+  CP=${x}:${CP}
+done
+
+######## compile subject
+find "${PREPROC_DIR}" -name "*.java" | \
+    xargs javac -cp $CP -d ${PREPROC_DIR}
