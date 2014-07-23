@@ -20,8 +20,5 @@ done
 find "${SPLATDIR}/src" -name "*.java" | \
     xargs javac -cp $CP -d ${BUILDDIR}
 
-######## compile splat subjects
-SRCDIR="${PROJ_HOME}/src-subjects-splat"
-find "${SRCDIR}" -name "*.java" | \
-    xargs javac -cp $CP -d ${BUILDDIR}
+
 
