@@ -8,6 +8,7 @@ popd > /dev/null
 SRCDIR="${PROJ_HOME}/src-splat"
 BUILDDIR="${PROJ_HOME}/build"
 LIBSDIR="${PROJ_HOME}/libs"
+LOGSDIR="${PROJ_HOME}/data"
 CP="${BUILDDIR}"
 
 for x in `ls ${LIBSDIR}/*.jar`;
@@ -15,10 +16,9 @@ do
   CP=${x}:${CP}
 done
 
+export PROJ_HOME
 export SRCDIR
 export BUILDDIR
 export LIBSDIR
-export PROJ_HOME
+export LOGSDIR
 export CP
-
-
