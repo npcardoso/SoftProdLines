@@ -1,0 +1,24 @@
+#!/bin/bash
+
+source `dirname $0`/commons
+
+for x in `ls ${LOGSDIR}/log*.txt`;
+do
+    tmp=$(echo ${x#*log-})
+    name=${tmp%.txt}
+    bak="${x}.bak"
+
+    ## REMOVE **
+    sed -i.bak s/\*\*//g $x
+
+    ## PROCESS LINE-BY-LINE
+    grep -vE "#" $bak | while read line
+    do
+        if [[ "$line" =~ "testname" ]] ;
+        then
+            testname=$(echo ${line#testname:} | cut -f1 -d' ')
+        else
+            echo "$testname $line"
+        fi
+    done  > ${LOGSDIR}/${name}.matrix
+done
