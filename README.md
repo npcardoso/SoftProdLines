@@ -1,3 +1,1 @@
-Discretization example
-
-$> ./bin/discretize
+add short intro
