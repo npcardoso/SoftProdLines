@@ -7,7 +7,7 @@ popd > /dev/null
 
 SRCDIR="${PROJ_HOME}/src"
 SPLATDIR="${PROJ_HOME}/splat"
-BUILDDIR="${PROJ_HOME}/build"
+BUILDDIR="${PROJ_HOME}/bin"
 LOGSDIR="${PROJ_HOME}/data"
 CP="${BUILDDIR}"
 

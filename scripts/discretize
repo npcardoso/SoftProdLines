@@ -8,20 +8,18 @@ then
     exit
 fi
 
-BIN_DIR="$PROJ_HOME/bin"
 SRC_DIR="$PROJ_HOME/src"
-BUILD_DIR="$PROJ_HOME/build"
-
-if [[ ! -d "${BIN_DIR}" ]];
+if [[ ! -d "${SRC_DIR}" ]];
 then
     echo "Could not find directory $PROJ_HOME/bin."
     exit
 fi
 
-CLASSPATH="${BUILD_DIR}"
-
+BUILD_DIR="$PROJ_HOME/bin"
 ## create build directory if does not exist
 mkdir -p ${BUILD_DIR}
+
+CLASSPATH="${BUILD_DIR}"
 
 ## compile
 find ${SRC_DIR} -name "*.java" | \
