@@ -41,9 +41,13 @@ fi
     pwd
     for x in `find . -name "*.java" | xargs`
     do
-        cpp -E ${ARGS} ${x} | grep -vE "#" > "${PREPROC_DIR}/${x}"
+        tmp=$(echo ${x%/*})
+        mkdir -p "${PREPROC_DIR}/$tmp"
+        cpp -E ${ARGS} ${x} | grep -vE "#" > ${PREPROC_DIR}/$x
     done
 )
+
+############> 
 
 
 LIBSDIR="${SPLATDIR}/libs"

@@ -60,16 +60,19 @@ esac
 
 LOGDIR="${PROJ_HOME}/data/"
 mkdir -p ${LOGDIR}
-LOGFILE="${LOGDIR}/${SUBJECT}.txt"
+LOGFILE="${LOGDIR}/log-${SUBJECT}.txt"
 
 VM="java -Xmx1024m"
 ##VM="jvisualvm"
 #VM="java -Xmx1024m -agentlib:hprof=cpu=samples"
 
 ### used shouldsample FALSE if you want to disable sampling
+
+PREPROC_DIR="${PROJ_HOME}/src-subjects-splat/preproc"
+
 (cd ${SUBJECTDIR};
 
-    ${VM} -cp $CP splat.Main \
+    ${VM} -cp ${PREPROC_DIR}:$CP splat.Main \
         --testclass ${TESTFILE} \
         --logfile ${LOGFILE} \
         --shouldsample ${SHOULDSAMPLE} \
