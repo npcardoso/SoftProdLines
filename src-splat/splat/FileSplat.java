@@ -199,7 +199,7 @@ public class FileSplat {
   }
 
   private void forceChoose(GCCResult currentResult, Set<String> whitelistedVars) {
-    Set<String> alreadySeen = new HashSet<>();
+    Set<String> alreadySeen = new HashSet<String>();
     for (VariableAccess access : currentResult.getEnabledFeatures()) {
       String varName = access.var;
 
