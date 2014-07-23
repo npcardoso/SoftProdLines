@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 source `dirname $0`/commons
 
 if [ -z "$BUILDDIR" ];
@@ -11,8 +10,14 @@ fi
 
 mkdir -p ${BUILDDIR}
 
+LIBSDIR="${SPLATDIR}/libs"
+for x in `ls ${LIBSDIR}/*.jar`;
+do
+  CP=${x}:${CP}
+done
+
 ######## compile splat
-find "${SRCDIR}" -name "*.java" | \
+find "${SPLATDIR}/src" -name "*.java" | \
     xargs javac -cp $CP -d ${BUILDDIR}
 
 ######## compile splat subjects

@@ -2,9 +2,13 @@
 
 source `dirname $0`/commons
 
-SPLATDIR="$PROJ_HOME/src-subjects-splat"
+LIBSDIR="${SPLATDIR}/libs"
+for x in `ls ${LIBSDIR}/*.jar`;
+do
+  CP=${x}:${CP}
+done
 
-#################
+#################  FIXED FOR NOW
 SUBJECT="zipme"
 SHOULDSAMPLE="false"
 SAMPLERATE="1"
@@ -19,7 +23,7 @@ echo "${SUBJECT} ${SHOULDSAMPLE} ${SAMPLERATE}"
 # fi
 
 ## check if informed the name of a proper subject
-SUBJECTDIR="$SPLATDIR/$SUBJECT"
+SUBJECTDIR="$PROJ_HOME/src-subjects-splat/$SUBJECT"
 
 if [ ! -d "$SUBJECTDIR" ];
 then

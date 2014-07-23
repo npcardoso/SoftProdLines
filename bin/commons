@@ -5,20 +5,15 @@ pushd `dirname $0` > /dev/null
 PROJ_HOME=`pwd`/..
 popd > /dev/null
 
-SRCDIR="${PROJ_HOME}/src-splat"
+SRCDIR="${PROJ_HOME}/src"
+SPLATDIR="${PROJ_HOME}/splat"
 BUILDDIR="${PROJ_HOME}/build"
-LIBSDIR="${PROJ_HOME}/libs"
 LOGSDIR="${PROJ_HOME}/data"
 CP="${BUILDDIR}"
 
-for x in `ls ${LIBSDIR}/*.jar`;
-do
-  CP=${x}:${CP}
-done
-
 export PROJ_HOME
+export SPLATDIR
 export SRCDIR
 export BUILDDIR
-export LIBSDIR
 export LOGSDIR
 export CP
