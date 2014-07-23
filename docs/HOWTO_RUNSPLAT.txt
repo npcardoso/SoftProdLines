@@ -1,0 +1,50 @@
+This tutorial shows :
+ - how to run splat
+ - how to introduce mutants
+ - how to generate matrices of test outputs
+
+Part 1: Run test suite in SPLat mode
+
+PROJ_HOME $> cd scripts
+PROJ_HOME/scripts$> ./compile-splat
+PROJ_HOME/scripts$> ./compile-subject zipme 
+compiling subject=zipme with mutant=
+...
+PROJ_HOME/scripts$> date
+Wed Jul 23 15:27:30 BRT 2014
+PROJ_HOME/scripts$> ./splat
+...
+
+===========================================================================
+
+Part 2: Visualize results
+
+PROJ_HOME/scripts$> ls -lt ../data/log-zipme.txt
+Jul 23 15:27 ../data/log-zipme.txt
+PROJ_HOME/scripts$> cat ../data/log-zipme.txt
+...
+PROJ_HOME/scripts$> ./log2matrix
+PROJ_HOME/scripts$> cat ../data/matrix-zipme.txt
+net.sf.zipme.ExtractTest:basicsExtractTests ** 1,?,?,1,?,1,1,?,?,?,?,1,?,P
+net.sf.zipme.ExtractTest:basicsExtractTests ** 1,?,?,1,?,?,1,?,?,?,?,1,?,P
+net.sf.zipme.ExtractTest:basicsExtractTests ** 1,?,?,1,?,?,1,?,?,?,?,0,?,P
+net.sf.zipme.ExtractTest:basicsExtractTests ** 1,?,?,1,?,?,0,?,?,?,?,1,?,P
+net.sf.zipme.ExtractTest:basicsExtractTests ** 1,?,?,1,?,?,0,?,?,?,?,0,?,P
+net.sf.zipme.ExtractTest:basicsExtractTests ** 0,?,?,1,?,?,?,?,?,?,?,1,?,P
+net.sf.zipme.ExtractTest:basicsExtractTests ** 0,?,?,1,?,?,?,?,?,?,?,0,?,P
+net.sf.zipme.ExtractTest:createZipETest ** 1,?,?,1,?,?,1,?,?,?,?,?,?,P
+net.sf.zipme.ExtractTest:createZipETest ** 1,?,?,1,?,?,0,?,?,?,?,?,?,P
+net.sf.zipme.ExtractTest:createZipETest ** 0,?,?,1,?,?,?,?,?,?,?,?,?,P
+
+===========================================================================
+
+Part 3: Create a mutant and compile it
+
+PROJ_HOME/scripts$> ./compile-subject zipme MUTANT_001
+compiling subject=zipme with mutant=MUTANT_001
+...
+PROJ_HOME/scripts$> ./splat
+PROJ_HOME/scripts$> cat ../data/log-zipme.txt
+  {there should be errors in the log}
+PROJ_HOME/scripts$> ./log2matrix
+PROJ_HOME/scripts$> cat ../data/matrix-zipme.txt
