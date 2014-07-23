@@ -77,7 +77,7 @@ public class FailOnTimeout extends Statement {
                 fStatement.evaluate();
                 fFinished = true;
             } catch (InterruptedException e) {
-                // don't log the InterruptedException
+                // dont log the InterruptedException
             } catch (Throwable e) {
                 fExceptionThrownByOriginalStatement = e;
             }
