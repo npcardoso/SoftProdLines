@@ -11,10 +11,13 @@ import java.io.PipedOutputStream;
 
 import org.junit.Test;
 
+import splat.ZipMeVariables;
+
 public class TestCheckedInputStream extends ZipMeTest {
 
   @Test
   public void test0() throws Throwable {
+    ZipMeVariables.getSINGLETON().setADLER32CHECKSUM___(true);
     Adler32 adler32_0 = new Adler32();
     assertNotNull(adler32_0);
     byte[] byteArray0 = new byte[1];
@@ -28,6 +31,8 @@ public class TestCheckedInputStream extends ZipMeTest {
 
   @Test
   public void test1() throws Throwable {
+    ZipMeVariables.getSINGLETON().setARCHIVECHECK___(false);
+    ZipMeVariables.getSINGLETON().setADLER32CHECKSUM___(true);
     byte[] byteArray0 = new byte[8];
     ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(
         byteArray0);
@@ -52,6 +57,7 @@ public class TestCheckedInputStream extends ZipMeTest {
 
   @Test
   public void test3() throws Throwable {
+    ZipMeVariables.getSINGLETON().setADLER32CHECKSUM___(true);
     BufferedInputStream bufferedInputStream0 = new BufferedInputStream(
         (InputStream) null);
     Adler32 adler32_0 = new Adler32();
@@ -66,6 +72,7 @@ public class TestCheckedInputStream extends ZipMeTest {
 
   @Test
   public void test4() throws Throwable {
+    ZipMeVariables.getSINGLETON().setADLER32CHECKSUM___(true);
     InputStream inputStream0 = null;
     Adler32 adler32_0 = new Adler32();
     assertNotNull(adler32_0);
@@ -105,6 +112,7 @@ public class TestCheckedInputStream extends ZipMeTest {
   
   @Test
   public void test8()  throws Throwable  {
+    ZipMeVariables.getSINGLETON().setADLER32CHECKSUM___(true);
     Adler32 adler32_0 = new Adler32();
     assertNotNull(adler32_0);
     byte[] byteArray0 = new byte[8];

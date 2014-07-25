@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import splat.ZipMeVariables;
 
-public class CompressAdlerCSTests extends ZipMeTest{
+public class CompressAdlerCSTests {
 
   @Test
   /*

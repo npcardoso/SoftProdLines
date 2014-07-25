@@ -1,20 +1,36 @@
 package net.sf.zipme;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotSame;
 
 import java.io.IOException;
+import java.io.InputStream;
 
 import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
-
-import com.sun.xml.messaging.saaj.util.ByteInputStream;
 
 import splat.ZipMeVariables;
 
+//import com.sun.xml.internal.messaging.saaj.util.ByteInputStream;
 
-
-public class DerivGZIPEXTRTest extends ZipMeTest{
+public class DerivGZIPEXTRTest {
+  
+  InputStream in;
+  
+  @Before
+  public void setup() throws IOException {
+    byte[] b = {0};
+    in = new InputStream() {
+      
+      @Override
+      public int read() throws IOException {
+        // TODO Auto-generated method stub
+        return 0;
+      }
+    };
+    in.read(b);
+  }
 
   @Test
   /*
@@ -30,7 +46,7 @@ public class DerivGZIPEXTRTest extends ZipMeTest{
     
     //Variables
     byte[] b = {0};
-    ByteInputStream in = new ByteInputStream(b, 1);
+//    ByteInputStream in = new ByteInputStream(b, 1);
     ZipInputStream z = new ZipInputStream(in);
     
     //Tests
@@ -41,7 +57,7 @@ public class DerivGZIPEXTRTest extends ZipMeTest{
     z.headCRC = new CRC32();        //HeadCRC needs to be initialized
     assertEquals(z.headCRC.crc, 0); //Before hook2()
     z.hook2(0);           
-    assertNotSame(z.headCRC.crc, 0);  //After hook2() the value changed
+    Assert.assertEquals(z.headCRC.crc, -771559539);  //After hook2() the value changed
     
     assertEquals(z.crc.crc, 0);     //Value before hook30()
     try {
@@ -49,7 +65,7 @@ public class DerivGZIPEXTRTest extends ZipMeTest{
     } catch (IOException e) {
       e.printStackTrace();
     }
-    assertNotSame(z.crc.crc, 0);  //Value changed
+    Assert.assertEquals(z.crc.crc, -771559539);  //Value changed
     
   }
   
@@ -64,7 +80,7 @@ public class DerivGZIPEXTRTest extends ZipMeTest{
     
     //Variable
     byte[] b = {0};
-    ByteInputStream in = new ByteInputStream(b, 1);
+//    ByteInputStream in = new ByteInputStream(b, 1);
     ZipInputStream z = new ZipInputStream(in);
     
     z.headCRC = new CRC32(); //headCRC needs to be initialized
@@ -84,7 +100,7 @@ public class DerivGZIPEXTRTest extends ZipMeTest{
     
     //Variables
     byte[] b = {0};
-    ByteInputStream in = new ByteInputStream(b, 1);
+//    ByteInputStream in = new ByteInputStream(b, 1);
     ZipInputStream z = new ZipInputStream(in);
     
     z.headCRC = new CRC32(); //headCRC needs to be initialized

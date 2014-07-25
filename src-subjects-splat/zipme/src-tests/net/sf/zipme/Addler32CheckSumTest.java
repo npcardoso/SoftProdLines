@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import splat.ZipMeVariables;
 
-public class Addler32CheckSumTest extends ZipMeTest{
+public class Addler32CheckSumTest {
 
   @Test
   /*
