@@ -77,6 +77,8 @@ PREPROC_DIR="${PROJ_HOME}/src-subjects-splat/preproc"
         --logfile ${LOGFILE} \
         --shouldsample ${SHOULDSAMPLE} \
         --samplerate ${SAMPLERATE} \
-        --seed ${SEED} 
+        --seed ${SEED} \
+        --subject ${SUBJECT} \
+        --dataDir ${PROJ_HOME}
     
 )
