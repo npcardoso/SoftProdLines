@@ -34,6 +34,17 @@ public abstract class Variables {
     return result;
   }
   
+  public synchronized String[] getArrayFeatures() {
+	    Collection<String> values = this.map.values();
+	    String[] array = new String[values.size()];
+	    int i = 0;
+	    for (String v : values) {
+	        array[i] = v;
+	        i++;
+	    }
+	    return array;
+	  }
+  
   @SuppressWarnings("rawtypes")
   public Map<String, String> load(String[] args) {
     int i = 0;
