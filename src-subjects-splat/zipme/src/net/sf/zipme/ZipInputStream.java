@@ -349,11 +349,12 @@ public class ZipInputStream extends InflaterInputStream implements ZipConstants 
 			if (len == 0)
 				return 0;
 			this.hook38();
-			#ifdef MUTANT_001
-			  if (entry != null)
-			#else
+			//SABRINA comentou aqui por enquanto
+//			#ifdef MUTANT_001
+//			  if (entry != null)
+//			#else
 			  if (entry == null)
-			#endif
+//			#endif
 				return -1;
 			boolean finished = false;
 			switch (method) {
