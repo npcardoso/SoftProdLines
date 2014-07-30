@@ -1,6 +1,13 @@
 #!/bin/bash
 
-PROJ_HOME=`dirname $0`/..
+source `dirname $0`/commons
+
+if [[ ! -f "${1}" ]];
+then
+    echo "Could not find file $1"
+    exit
+fi
+
 if [[ -z ${PROJ_HOME} ]];
 then
     echo "Please define variable PROJ_HOME."
@@ -8,23 +15,21 @@ then
     exit
 fi
 
-SRC_DIR="$PROJ_HOME/src"
-if [[ ! -d "${SRC_DIR}" ]];
+if [[ ! -d "${SRCDIR}" ]];
 then
     echo "Could not find directory $PROJ_HOME/bin."
     exit
 fi
 
-BUILD_DIR="$PROJ_HOME/bin"
-## create build directory if does not exist
-mkdir -p ${BUILD_DIR}
 
-CLASSPATH="${BUILD_DIR}"
+## create build directory if does not exist
+mkdir -p ${BUILDDIR}
+
+CLASSPATH="${BUILDDIR}"
 
 ## compile
-find ${SRC_DIR} -name "*.java" | \
-    xargs javac -cp ${CLASSPATH} -d ${BUILD_DIR}
+find ${SRCDIR} -name "*.java" | \
+    xargs javac -cp ${CLASSPATH} -d ${BUILDDIR}
 
 ## run
-cat ${SRC_DIR}/sample.txt | \
-    java -cp ${CLASSPATH} DiscretizeMatrix
+cat $1 | java -cp ${CLASSPATH} DiscretizeMatrix 
