@@ -9,6 +9,8 @@ import net.test.ZipMETest;
 
 import org.junit.Test;
 
+import splat.ZipMeVariables;
+
 public class TestCheckedOutputStream extends ZipMETest {
 
   @Test
@@ -39,6 +41,7 @@ public class TestCheckedOutputStream extends ZipMETest {
 
   @Test
   public void test2() throws Throwable {
+    ZipMeVariables.getSINGLETON().setADLER32CHECKSUM___(true);
     ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream(
         1970);
     Adler32 adler32_0 = new Adler32();
@@ -59,6 +62,7 @@ public class TestCheckedOutputStream extends ZipMETest {
 
   @Test
   public void test4() throws Throwable {
+    ZipMeVariables.getSINGLETON().setADLER32CHECKSUM___(true);
     ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream();
     Adler32 adler32_0 = new Adler32();
     assertNotNull(adler32_0);

@@ -1,17 +1,17 @@
 package net.sf.zipme;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Test;
 
 import splat.ZipMeVariables;
 
-public class ExtractTest extends ZipMeTest{
+public class ExtractTest {
 
   @Test
   /*
@@ -55,7 +55,7 @@ public class ExtractTest extends ZipMeTest{
     ByteArrayInputStream in = new ByteArrayInputStream(b);
     ZipInputStream z = new ZipInputStream(in);
 
-    assertNotNull(z.createZipEntry("test"));
+    Assert.assertNotNull(z.createZipEntry("test"));
     
     
   }

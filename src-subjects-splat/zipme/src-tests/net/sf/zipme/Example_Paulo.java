@@ -14,7 +14,7 @@ import org.junit.Test;
 
 import splat.ZipMeVariables;
 
-public class Example_Paulo extends ZipMeTest{
+public class Example_Paulo {
   
   //gets the project path
   static String homeDir;
@@ -54,7 +54,7 @@ public class Example_Paulo extends ZipMeTest{
   @Test
   public void testDERIVATIVE_COMPRESS_CRC() throws IOException{
     ZipMeVariables.getSINGLETON().setCRC___(true);
-    ZipMeVariables.getSINGLETON().setDERIVATIVE_COMPRESS_CRC___(true);
+    ZipMeVariables.getSINGLETON().setCOMPRESS___(true);
     ZipOutputStream zout = new ZipOutputStream(new FileOutputStream(new File(
         homeDir + "/files/src.zip")));
     zout.crc.update(1);
@@ -124,13 +124,13 @@ public class Example_Paulo extends ZipMeTest{
     assertTrue(adler.getValue() != -1);
   }
   
-  @Test
-  public void testDERIVATIVE_COMPRESS_GZIP___() throws IOException{
-    ZipMeVariables.getSINGLETON().setGZIP___(true);
-    ZipMeVariables.getSINGLETON().setDERIVATIVE_COMPRESS_GZIP___(true);
-    GZIPInputStream is = new GZIPInputStream(new FileInputStream(new File (homeDir + "/files/src.zip")));
-    assertFalse(is.len > 0);
-  }
+//  @Test
+//  public void testDERIVATIVE_COMPRESS_GZIP___() throws IOException{
+//    ZipMeVariables.getSINGLETON().setGZIP___(true);
+//    ZipMeVariables.getSINGLETON().setDERIVATIVE_COMPRESS_GZIP___(true);
+//    GZIPInputStream is = new GZIPInputStream(new FileInputStream(new File (homeDir + "/files/src.zip")));
+//    assertFalse(is.len > 0);
+//  }
   
   @Test
   public void testDERIVATIVE_GZIPCRC___() throws IOException{
@@ -169,6 +169,6 @@ public class Example_Paulo extends ZipMeTest{
 
   @After
   public void tearDown(){
-    ZipMeVariables.getSINGLETON().restore();
+//    ZipMeVariables.getSINGLETON().restore();
   }
 }

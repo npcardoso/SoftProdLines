@@ -1,3 +1,5 @@
 bin
 bin/*
 test.txt
+_debug.cnf
+.DS_Store

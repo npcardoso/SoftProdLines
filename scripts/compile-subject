@@ -49,7 +49,6 @@ fi
 
 ############> 
 
-
 LIBSDIR="${SPLATDIR}/libs"
 for x in `ls ${LIBSDIR}/*.jar`;
 do
@@ -59,3 +58,9 @@ done
 ######## compile subject
 find "${PREPROC_DIR}" -name "*.java" | \
     xargs javac -cp $CP -d ${PREPROC_DIR}
+
+
+SRC_TESTS_DIR="${PROJ_HOME}/src-subjects-splat/${SUBJECT}/src-tests"
+######## compile tests
+find "${SRC_TESTS_DIR}" -name "*.java" | \
+    xargs javac -cp $CP:${PREPROC_DIR} -d ${PREPROC_DIR}

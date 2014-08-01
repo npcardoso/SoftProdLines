@@ -1,17 +1,17 @@
 package net.sf.zipme;
 
-import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
 
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Test;
 
 import splat.ZipMeVariables;
 
-public class GZIPtest extends ZipMeTest{
+public class GZIPtest {
 
   @Test
   /*
@@ -30,17 +30,17 @@ public class GZIPtest extends ZipMeTest{
       GZIPInputStream g = new GZIPInputStream(in);
       assertTrue(g.eos);
    
-      assertNotSame(in.stream, null);
+      Assert.assertNotNull(in.stream);
       g.close();
       assertEquals(in.stream, null);
     }catch(IOException e){
       System.out.println(e);
     }
   }
-  
+
   @After
-  public void teardown(){
-//    ZipMeVariables.getSINGLETON().restore();
+  public void teardown() {
+    // ZipMeVariables.getSINGLETON().restore();
   }
 
 }
