@@ -4,7 +4,7 @@ public class DiscretizeMatrix {
     @SuppressWarnings("unchecked")
 	public static void main(String[] args) throws Exception {
     	
-//    	InputStream in = new FileInputStream("../data/matrix-zipme.txt");
+//    	InputStream in = new FileInputStream("/Users/damorim/projects/SoftProdLines/data/matrix-zipme.txt");
     	InputStream in = System.in;
         // read input matrix
         BufferedReader br = new BufferedReader(new InputStreamReader(in));
@@ -24,6 +24,9 @@ public class DiscretizeMatrix {
             s = s.replace('P', '.');
             s = s.replace('F', 'x');
             s = s.substring(s.indexOf(" ")).trim();
+            if (s.startsWith("**")) {
+            	s = s.substring(2).trim();
+            }
             String[] parts = s.split(",");
             if (cols == null) {
                 cols = new ArrayList[parts.length];
