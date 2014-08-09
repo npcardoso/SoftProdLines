@@ -2,7 +2,13 @@
 
 source `dirname $0`/commons
 
-if [[ ! -f "${1}" ]];
+SUBJECT="$1"
+MATRIX_FILE_NAME="${LOGSDIR}/matrix-${SUBJECT}.txt"
+LOG_FILE_NAME="${LOGSDIR}/log-${SUBJECT}.txt"
+DISCRETIZED_MATRIX_FILE_NAME="${LOGSDIR}/discretized-matrix-${SUBJECT}.txt"
+
+
+if [[ ! -f "${MATRIX_FILE_NAME}" ]];
 then
     echo "Could not find file $1"
     exit
@@ -31,5 +37,12 @@ CLASSPATH="${BUILDDIR}"
 find ${SRCDIR} -name "*.java" | \
     xargs javac -cp ${CLASSPATH} -d ${BUILDDIR}
 
-## run
-cat $1 | java -cp ${CLASSPATH} DiscretizeMatrix 
+## generating discretized matrix
+TMP="/tmp/discretized.tmp"
+cat "${MATRIX_FILE_NAME}" | java -cp ${CLASSPATH} DiscretizeMatrix > ${TMP}
+
+## removing generating discretized matrix
+java -cp ${CLASSPATH} UpdateNames "${LOG_FILE_NAME}" "${TMP}" > "${DISCRETIZED_MATRIX_FILE_NAME}"
+
+## discretized matrix
+echo "discretized matrix in ${DISCRETIZED_MATRIX_FILE_NAME}"
