@@ -47,4 +47,4 @@ PROJ_HOME/scripts$> ./splat
 PROJ_HOME/scripts$> cat ../data/log-zipme.txt
   {there should be errors in the log}
 PROJ_HOME/scripts$> ./log2matrix
-PROJ_HOME/scripts$> ./discretize ../data/matrix-zipme.txt
+PROJ_HOME/scripts$> ./discretize zipme
