@@ -8,9 +8,9 @@ yes, what is the advantage of our approach compared to theirs?
 Which Configuration Option Should I Change?  ICSE'14
 
 This paper tries to identify the configuration options that need to be changed/modified
-so that a new version of the software behaves as an old version. 
+so that a new version of the software behaves as an old version.
 
-Our solution does not need an old version in order to do the analysis. 
+Our solution does not need an old version in order to do the analysis.
 
 %%%%%%%
 Automated Diagnosis of Software Configuration Errors.  ICSE'13
@@ -26,5 +26,20 @@ of correct executions in order for the approach to be able to identify what is e
 %%%%%%%
 Do Not Blame Users for Misconfigurations.  SOSP'13
 
+This paper proposes SPEX, a technique that infers configuration contraints from source
+code (statically) and uses the contraints to (1) expose (automatic testing) misconfigurations
+and (2) detect certain types of error-prone configuration design and handling.
+
+Our technique is light-weight when compared to this one and explores all sets of test
+cases available and not only the configuration-oriented ones.
+
+
 %%%%%%%
 Failure Avoidance in Configurable Systems through Feature Locality. Assurances for Self-Adaptive Systems 2013
+
+This technique determines common relationships between configurations, which can help to reactively
+build recovery solutions and predict results of specific configurations.
+
+It seems that this paper is orthogonal to what we are trying to achieve, and after we diagnose, it
+can be used to recover from the set of features. It is interesting to think about that because it
+paves the way to automatic diagnose and recovery.
