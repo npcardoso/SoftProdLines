@@ -4,8 +4,13 @@ public class DiscretizeMatrix {
     @SuppressWarnings("unchecked")
 	public static void main(String[] args) throws Exception {
     	
-//    	InputStream in = new FileInputStream("/Users/damorim/projects/SoftProdLines/data/matrix-zipme.txt");
-    	InputStream in = System.in;
+    	//read from a file
+    	String path = args[0]; //path of raw data (ex. ../SoftProdLines/src-subjects-splat/gcc/)
+    	String fname = args[1]; //raw data name (ex. test_dg_20090922-1.c.txt)
+    	InputStream in = new FileInputStream(path+fname);
+    	
+//    	InputStream in = new FileInputStream("../SoftProdLines/src/sample.txt");
+//    	InputStream in = System.in;
         // read input matrix
         BufferedReader br = new BufferedReader(new InputStreamReader(in));
         String s;
@@ -13,14 +18,6 @@ public class DiscretizeMatrix {
         int numLines = 0;
         while ((s = br.readLine())!=null) {
             if (s.trim().equals("")) continue;
-//            if (s.contains(":")) {
-//                s = s.substring(s.indexOf(":")+1).trim();
-//            }
-//            if (s.startsWith("[")) {
-//                s = s.substring(s.indexOf("[")+1, s.length()-1);
-//            }
-//            String[] parts = s.split(" ");
-            
             s = s.replace('P', '.');
             s = s.replace('F', 'x');
             s = s.substring(s.indexOf(" ")).trim();
@@ -92,11 +89,24 @@ public class DiscretizeMatrix {
             data.append(output);
             data.append("\n");
         }
-        System.out.println("#########");
-        System.out.println("# description of original components can be found in log data and raw matrix");
-        System.out.println("#########");
-        System.out.print(names);
-        System.out.println(numNames + " " + numLines);
-        System.out.print(data);
+        
+        //write into a file
+        PrintWriter pw = new PrintWriter(new FileWriter(path+"matrix-"+fname, true));
+        pw.println("#########");
+        pw.println("# description of original components can be found in log data and raw matrix");
+        pw.println("#########");
+        pw.print(names);
+        pw.println(numNames + " " + numLines);
+        pw.print(data);
+        pw.close();
+        
+//      //console output
+//      System.out.println("#########");
+//      System.out.println("# description of original components can be found in log data and raw matrix");
+//      System.out.println("#########");
+//      System.out.print(names);
+//      System.out.println(numNames + " " + numLines);
+//      System.out.print(data);
+//      System.out.close();
     }
 }
