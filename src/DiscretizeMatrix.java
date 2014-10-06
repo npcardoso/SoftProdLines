@@ -4,7 +4,7 @@ public class DiscretizeMatrix {
     @SuppressWarnings("unchecked")
 	public static void main(String[] args) throws Exception {
     	
-    	InputStream in = new FileInputStream("/Users/sabrinasouto/PhD/workspace_collaboration/SoftProdLines/src-subjects-splat/gcc/sample.txt");
+    	InputStream in = new FileInputStream("../SoftProdLines/src-subjects-splat/gcc/sample.txt");
 //    	InputStream in = System.in;
         // read input matrix
         BufferedReader br = new BufferedReader(new InputStreamReader(in));
