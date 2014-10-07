@@ -1,0 +1,21 @@
+INPUT
+[0, 1, 0, 2] P
+[1, ?, 1, 0] F
+[1, 0, 1, 1] F
+
+OUTPUT
+#########
+# description of original components can be found in log data and raw matrix
+#########
+# column: 1: 1
+# column: 2: 2(0)
+# column: 3: 2(1)
+# column: 4: 2(?)
+# column: 5: 3
+# column: 6: 4(0)
+# column: 7: 4(1)
+# column: 8: 4(2)
+8 3
+0 0 1 0 0 0 0 1 .
+1 0 0 1 1 1 0 0 x
+1 1 0 0 1 0 1 0 x
